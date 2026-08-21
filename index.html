@@ -4,47 +4,89 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Rock Paper Scissors</title>
+        <link
+            href="http://fonts.googleapis.com/css?family=Roboto"
+            rel="stylesheet"
+            type="text/css"
+        />
+        <link rel="stylesheet" href="style.css" />
     </head>
     <body>
-        <script>
-            function getComputerChoice() {
-                const choices = ["rock", "paper", "scissors"];
-                const randomIndex = Math.floor(Math.random() * 3);
-                return choices[randomIndex];
-            }
-            function getHumanChoice() {
-                const choice = prompt("Enter your play: ");
-                return choice.toLowerCase();
-            }
-            function playGame() {
-                function playRound(humanChoice, computerChoice) {
-                    if (humanChoice === computerChoice) {
-                        console.log("Tie");
-                    } else if (
-                        (humanChoice === "rock" &&
-                            computerChoice === "scissors") ||
-                        (humanChoice === "scissors" &&
-                            computerChoice === "paper") ||
-                        (humanChoice === "paper" && computerChoice === "rock")
-                    ) {
-                        console.log("Win");
-                        humanScore++;
-                    } else {
-                        console.log("Lose");
-                        computerScore++;
-                    }
-                }
-                let humanScore = 0,
-                    computerScore = 0;
-                for (let i = 0; i < 5; i++) {
-                    const humanSelection = getHumanChoice();
-                    const computerSelection = getComputerChoice();
-                    playRound(humanSelection, computerSelection);
-                }
-                console.log("Your score: ", humanScore);
-                console.log("Computer score: ", computerScore);
-            }
-            playGame();
-        </script>
+        <!-- TODO: RPS variations | Dark/Light Mode Toggle -->
+        <header>
+            <ul class="variations">
+                <li><a href="" style="color: gainsboro">Home</a></li>
+                <li><a href="">RPS-5</a></li>
+                <li><a href="">RPS-7</a></li>
+                <li><a href="">Bear, Ninja, Cowboy</a></li>
+                <li><a href="">Elephant, Person, Ant</a></li>
+                <li><a href="">Mushi-ken</a></li>
+                <li><a href="">Kitsune-ken</a></li>
+            </ul>
+        </header>
+
+        <main>
+            <div class="result">
+                <h1 class="result-info">Start playing by choosing a hand!</h1>
+                <h3 class="result-container">
+                    <div class="result-box">
+                        <img
+                            src="icons/bold-question-mark.svg"
+                            alt="unknown"
+                            class="player-hand"
+                            width="101"
+                            height="101"
+                        />
+                        <p class="player-score">Your Score: 0</p>
+                    </div>
+                    <div class="result-box">
+                        <img
+                            src="icons/bold-question-mark.svg"
+                            alt="unknown"
+                            class="computer-hand"
+                            width="101"
+                            height="101"
+                        />
+                        <p class="computer-score">My Score: 0</p>
+                    </div>
+                </h3>
+            </div>
+
+            <div class="hands">
+                <button id="rock" class="hands-button">
+                    <img
+                        src="icons/cartoon-rock.svg"
+                        alt="rock"
+                        width="88"
+                        height="88"
+                    />
+                </button>
+                <button id="paper" class="hands-button">
+                    <img
+                        src="icons/paper-grain.svg"
+                        alt="paper"
+                        width="88"
+                        height="88"
+                    />
+                </button>
+                <button id="scissors" class="hands-button">
+                    <img
+                        src="icons/scissors.svg"
+                        alt="scissors"
+                        width="88"
+                        height="88"
+                    />
+                </button>
+            </div>
+        </main>
+
+        <footer>
+            <p>Copyright © 2026 Ali Nazari</p>
+            <a href="https://github.com/alinazarigh" target="_blank">
+                <img class="github-logo" src="icons/github-mark.svg" />
+            </a>
+        </footer>
+
+        <script src="script.js"></script>
     </body>
 </html>
